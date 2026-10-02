@@ -4,75 +4,43 @@
 ><br />
 >姓名：邱怡瑄
 ><br />
->作業撰寫時間：180 (mins，包含程式撰寫時間，換成自己的)
+>作業撰寫時間：超過 180 mins
 ><br />
->最後撰寫文件日期：2023/09/22 (換成自己的)
+>最後撰寫文件日期：2023/10/02
 >
 
-本份文件包含以下主題：(至少需下面兩項，若是有多者可以自行新增)
-- [x] 說明內容
-- [x] 其他 (可以包含心得或是想跟老師反映)
-
-## 說明內容
-
-開始寫說明，該說明需說明想法，
-並於之後再對上述想法的每一部分將程式進一步進行展現，
-若需引用程式區則使用下面方法，
-若為.cs檔內程式除了於敘述中需註明檔案名稱外，
-還需使用語法` ```語言種類 程式碼 ``` `，其中語言種類若是要用python則使用py，java則使用java，C/C++則使用cpp，
-下段程式碼為語言種類選擇csharp使用後結果：
-
-```csharp
-public void mt_getResult(){
-    ...
-}
-```
-
-若要於內文中標示部分網頁檔，則使用以下標籤` ```html 程式碼 ``` `，
-下段程式碼則為使用後結果：
-
-```html
-<%@ Page Language="C#" AutoEventWireup="true" ...>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" ...>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
-```
-更多markdown方法可參閱[https://ithelp.ithome.com.tw/articles/10203758](https://ithelp.ithome.com.tw/articles/10203758)
-
-請在撰寫"說明程式與內容"該塊內容，請把原該塊內上述敘述刪除，該塊上述內容只是用來指引該怎麼撰寫內容。
-
+作答區:
 1. 
 
 Ans:
 圖1:
 一開始因為少打了g，導致無法執行git clone，導致我無法進行下載。後來修正過後就可以從115-1HW1倉庫中複製一份到我的倉庫資料夾內，即可執行下一個步驟。
+![GITHUB](./homework1/終端程式執行1.png)
+ 
 
 圖2:
 因為成功複製專案，所以執行cd指令進入到複製過來的位置。此時(main)變成了(BARE:main)，所以可以確認我已經成功進入該專案的位置。
+![GITHUB](./homework1/終端程式執行2.png)
 
 圖3:
 為了將這份專案從115-1HW1中轉移到作業1/-1的資料夾中，我執行了 --mirror 指令將115-1HW1專案上傳至-1資料夾裡面，最後顯示為main -> main (forced update)，所以成功轉移至-1資料夾裡面。
+![GITHUB](./homework1/終端程式執行3.png)
 
 圖4:
 成功轉移後，我就去把複製的那一份暫存檔刪掉。然後重新下載一份屬於自己的專案，結果因為原先就有-1這個資料夾了，所以我無法再重複取一樣的資料夾名字。
+![GITHUB](./homework1/終端程式執行4.png)
 
 圖5:
 後來手動在外部直接刪除-1資料夾後，再重新下載在-1資料夾之後，顯示Cloning into '-1'... 並且 Receiving objects: 100%，就成功下載一份全新的專案至我的電腦上。
+![GITHUB](./homework1/終端程式執行5.png)
 
 圖6:
 因為我的資料夾為-1，-會被git bash當作參數，導致衝突無法執行。為了不產生衝突，所以加上./防止衝突，成功執行之後路徑切換成 ~/Desktop/遊戲設計/作業1/-1 ，就成功進入到我正在編寫的資料夾。
+![GITHUB](./homework1/終端程式執行6.png)
+
+圖7:
+這是我最終上傳成功的樣子。
+![GITHUB](./homework1/終端程式執行7.png)
 
 2. 
 
@@ -152,10 +120,28 @@ Ans:
 3. 
 
 Ans:
+i.建⽴新分⽀:新增一個以自己學號為命名的分支 git checkout -b feature-113111121，在main分支下。 
 
+ii. 在新分支上新增檔案並寫入內容:然後手動在-1資料夾新增一個 holle.txt 文字檔，並輸入指定內容:
+Hello Git!
+姓名：邱怡瑄
+學號：113111121
+
+iii. 提交（commit）:然後將 holle.txt 加入暫存區，然後用 git commit -m "新增 hello.txt" ，留下紀錄。
+
+iv. 合併（merge）:輸入 git checkout main 切回主分支，然後再把一開始的 git merge feature-113111121 合併回 main主分支。
+![GITHUB](./homework1/最終完成圖.png)
+
+v. 推上 GitHub：最後使用 git push origin main 將合併後新分支的最新版本同步上傳至 GitHub。
+![GITHUB](./homework1/上傳成功畫面.png)
 
 4. 
 
 Ans:
+以下是我的個人倉庫:
+![GITHUB](./homework1/個人網址.png)
+這是我最後輸入的個人倉庫網址:
+![GITHUB](./homework1/最後寫入結果.png)
 
 ## 其他
+以往都是用其他文書檔案，能直接看到成品樣子的軟體做作業，然後轉換成pdf。這還是第一次知道，能用vscode轉換成pdf，又讓我學到一種做作業的方法。

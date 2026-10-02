@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>answer.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E7%AC%AC1%E6%AC%A1%E4%BD%9C%E6%A5%AD%E9%A1%8C%E7%9B%AE-%E9%9A%A8%E5%A0%82-hw1">第1次作業題目-隨堂-HW1</h1>
+<blockquote>
+<p>學號：113111121
+<br />
+姓名：邱怡瑄
+<br />
+作業撰寫時間：超過 180 mins
+<br />
+最後撰寫文件日期：2023/10/02</p>
+</blockquote>
+<p>作答區:
+1.</p>
+<p>Ans:
+圖1:
+一開始因為少打了g，導致無法執行git clone，導致我無法進行下載。後來修正過後就可以從115-1HW1倉庫中複製一份到我的倉庫資料夾內，即可執行下一個步驟。
+<img src="./homework1/終端程式執行1.png" alt="GITHUB"></p>
+<p>圖2:
+因為成功複製專案，所以執行cd指令進入到複製過來的位置。此時(main)變成了(BARE:main)，所以可以確認我已經成功進入該專案的位置。
+<img src="./homework1/終端程式執行2.png" alt="GITHUB"></p>
+<p>圖3:
+為了將這份專案從115-1HW1中轉移到作業1/-1的資料夾中，我執行了 --mirror 指令將115-1HW1專案上傳至-1資料夾裡面，最後顯示為main -&gt; main (forced update)，所以成功轉移至-1資料夾裡面。
+<img src="./homework1/終端程式執行3.png" alt="GITHUB"></p>
+<p>圖4:
+成功轉移後，我就去把複製的那一份暫存檔刪掉。然後重新下載一份屬於自己的專案，結果因為原先就有-1這個資料夾了，所以我無法再重複取一樣的資料夾名字。
+<img src="./homework1/終端程式執行4.png" alt="GITHUB"></p>
+<p>圖5:
+後來手動在外部直接刪除-1資料夾後，再重新下載在-1資料夾之後，顯示Cloning into '-1'... 並且 Receiving objects: 100%，就成功下載一份全新的專案至我的電腦上。
+<img src="./homework1/終端程式執行5.png" alt="GITHUB"></p>
+<p>圖6:
+因為我的資料夾為-1，-會被git bash當作參數，導致衝突無法執行。為了不產生衝突，所以加上./防止衝突，成功執行之後路徑切換成 ~/Desktop/遊戲設計/作業1/-1 ，就成功進入到我正在編寫的資料夾。
+<img src="./homework1/終端程式執行6.png" alt="GITHUB"></p>
+<p>圖7:
+這是我最終上傳成功的樣子。
+<img src="./homework1/終端程式執行7.png" alt="GITHUB"></p>
+<ol start="2">
+<li></li>
+</ol>
+<p>Ans:
+1.Markdown基本寫作方法:
+優點:閱讀清晰、不會太雜。
+缺點:使用某些網站會需要額外調整，且須重新熟悉寫作的方式。</p>
+<p>2.常見語法:
+(1).字體:可以讓版面變得一眼就能辨認出重點，字體的大小以及使用的對應符號也能進一步的表達該文字的重要性。
+例子:
+粗體:<strong>bold</strong>
+標題字:# This is an <h1> tag
+次標題字:## This is an <h2> tag
+小標題字:###### This is an <h6> tag</p>
+<p>(2).列表:能完整地列出所需討論的內容。
+例子:</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2
+<ul>
+<li>Item 2a</li>
+<li>Item 2b</li>
+</ul>
+</li>
+</ul>
+<p>(3).CheckBox:類似於可勾選清單，只不過是用x表示勾選，不是傳統的√表示完成，不過因為不會記錄勾選過的內容，所以要時常確認有無誤勾。
+例子:</p>
+<ul>
+<li><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">This is a complete item</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">This is an incomplete item</label></li>
+</ul>
+<p>(4).區塊:可以讓大篇幅文章與小篇幅文章更好的區隔開來。
+例子:
+小區塊語法：<code>Format one word or one line</code>
+大區塊語法：    code (4 spaces indent)</p>
+<p>(5).程式碼:可以讓只有單一顏色的程式碼，加上顏色去更好的辨認程式碼的內容，可防止難以閱讀的情況發生。
+例子:</p>
+<pre><code>```js
+這邊是程式碼
+```
+</code></pre>
+<p>(6).圖片:因為只有文字是沒辦法更好的表達敘述，所以可以添加圖案來輔助文字。
+例子:
+<img src="圖片網址" alt="GITHUB" title="圖片名稱"></p>
+<p>(7).階層式區塊:能更好的用階層區分段落。
+例子:</p>
+<blockquote>
+<p>Quote one sentences</p>
+<blockquote>
+<p>Quote two sentences
+Quote two sentences</p>
+<blockquote>
+<p>Quote three sentences</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>(8).Slack:使用Slack通訊軟體的時候，可以從大群組新建出不容易搞混的小群組跟私人群組，可以更好的分流。而且發送一些重要訊息的時候，大部分人都只會發送表情符號，這樣就不會因為繼續傳送訊息導致之後有些人看不到。
+例子:
+粗體：<em>your text</em>
+斜體：<em>your text</em>
+刪除線：~your text~
+階層：</p>
+<blockquote>
+<p>Quote one sentence</p>
+<blockquote>
+<blockquote>
+<p>Quote multiple sentences
+小區塊：<code>Format one word or one line*</code>
+大區塊：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>```
+Format blocks of text
+```
+</code></pre>
+<p>(9).Facebook Messenger:大部分語法與Slack一樣。只不過差別在於，Facebook Messenger只能用電腦才能看到修改後的字體，手機上是只能連同符號一起傳送，並不會修改字體。Slack則是手機電腦都能看到自己修改過的字體，並不會出現連同符號一起傳送。
+例子:
+粗體:<em>your text</em>
+斜體:<em>your text</em>
+刪除線:~your text~
+小區塊:<code>Format one word or one line</code>
+大區塊:
+<code>    Format blocks of text    </code></p>
+<ol start="3">
+<li></li>
+</ol>
+<p>Ans:
+i.建⽴新分⽀:新增一個以自己學號為命名的分支 git checkout -b feature-113111121，在main分支下。</p>
+<p>ii. 在新分支上新增檔案並寫入內容:然後手動在-1資料夾新增一個 holle.txt 文字檔，並輸入指定內容:
+Hello Git!
+姓名：邱怡瑄
+學號：113111121</p>
+<p>iii. 提交（commit）:然後將 holle.txt 加入暫存區，然後用 git commit -m &quot;新增 hello.txt&quot; ，留下紀錄。</p>
+<p>iv. 合併（merge）:輸入 git checkout main 切回主分支，然後再把一開始的 git merge feature-113111121 合併回 main主分支。
+<img src="./homework1/最終完成圖.png" alt="GITHUB"></p>
+<p>v. 推上 GitHub：最後使用 git push origin main 將合併後新分支的最新版本同步上傳至 GitHub。
+<img src="./homework1/上傳成功畫面.png" alt="GITHUB"></p>
+<ol start="4">
+<li></li>
+</ol>
+<p>Ans:
+以下是我的個人倉庫:
+<img src="./homework1/個人網址.png" alt="GITHUB">
+這是我最後輸入的個人倉庫網址:
+<img src="./homework1/最後寫入結果.png" alt="GITHUB"></p>
+<h2 id="%E5%85%B6%E4%BB%96">其他</h2>
+<p>以往都是用其他文書檔案，能直接看到成品樣子的軟體做作業，然後轉換成pdf。這還是第一次知道，能用vscode轉換成pdf，又讓我學到一種做作業的方法。</p>
+
+</body>
+</html>
